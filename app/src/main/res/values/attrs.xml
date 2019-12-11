@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomNumView">
+        <attr name="num_text_color" format="reference|color" />
+        <attr name="num_text_size" format="dimension" />
+        <attr name="num_text_left" format="boolean" />
+        <attr name="num_text_right" format="boolean" />
+        <attr name="num_text_center" format="boolean" />
+    </declare-styleable>
+</resources>
