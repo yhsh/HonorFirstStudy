@@ -15,6 +15,7 @@ import com.xiayiye.honorfirst.R;
 
 /**
  * @author xiayiye
+ * 说明：自定义view字母列表页面
  */
 public class CustomNumView extends View {
     String[] data = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
@@ -67,7 +68,7 @@ public class CustomNumView extends View {
             float textHeight = bounds.height();
 //            float x = geZiWidth * 0.5f - textWidth * 0.5f;
             float y = (geZiHeight * 0.5f + textHeight * 0.5f) + i * geZiHeight;
-            float x = 0;
+            float x;
             if (isCenter) {
                 //xml中定义了居中就居中显示
                 x = geZiWidth * 0.5f - textWidth * 0.5f;
