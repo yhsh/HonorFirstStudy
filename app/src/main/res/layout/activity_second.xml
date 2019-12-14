@@ -21,4 +21,16 @@
         android:background="@android:color/holo_blue_bright"
         app:num_text_color="@android:color/white"
         app:num_text_size="20sp" />
+
+    <com.xiayiye.honorfirst.custom.CustomProgressView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:circle_arc="60"
+        app:edgeDistance="50dp"
+        app:progress_num="85"
+        app:progress_title="进度条"
+        app:progress_unit="99"
+        app:titleTextSize="24sp"
+        app:unitTextSize="16sp" />
 </RelativeLayout>
