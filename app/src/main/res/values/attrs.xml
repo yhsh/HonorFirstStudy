@@ -7,7 +7,7 @@
         <attr name="num_text_right" format="boolean" />
         <attr name="num_text_center" format="boolean" />
     </declare-styleable>
-    <declare-styleable name="ProgressView">
+    <declare-styleable name="CustomProgressView">
         <attr name="progress_title" format="string" />
         <attr name="progress_num" format="string" />
         <attr name="progress_unit" format="string" />

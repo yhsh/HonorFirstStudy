@@ -50,10 +50,10 @@ public class CustomProgressView extends View {
     private int width, height;
 
     private float currentPercent = 0.3f;
-
-    private float edgeDistance;//背景圆与view边界的距离
+    //背景圆与view边界的距离
+    private float edgeDistance;
     //圆环的角度参数
-    private float circleArc;
+    private float circleArc = 0;
 
     public CustomProgressView(Context context) {
         super(context);
@@ -68,31 +68,31 @@ public class CustomProgressView extends View {
     private void init(Context context, AttributeSet attrs) {
         this.context = context;
         if (attrs != null) {
-            TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ProgressView);
+            TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.CustomProgressView);
 
-            title = array.getString(R.styleable.ProgressView_progress_title);
-            num = array.getString(R.styleable.ProgressView_progress_num);
-            unit = array.getString(R.styleable.ProgressView_progress_unit);
+            title = array.getString(R.styleable.CustomProgressView_progress_title);
+            num = array.getString(R.styleable.CustomProgressView_progress_num);
+            unit = array.getString(R.styleable.CustomProgressView_progress_unit);
 
-            titleTextsize = array.getDimension(R.styleable.ProgressView_titleTextSize, getResources().getDimension(R.dimen.px_to_dip_24));
-            numTextsize = array.getDimension(R.styleable.ProgressView_numTextSize, getResources().getDimension(R.dimen.px_to_dip_48));
-            unitTextsize = array.getDimension(R.styleable.ProgressView_unitTextSize, getResources().getDimension(R.dimen.px_to_dip_24));
-            circleArc = array.getFloat(R.styleable.ProgressView_circle_arc, 0);
+            titleTextsize = array.getDimension(R.styleable.CustomProgressView_titleTextSize, getResources().getDimension(R.dimen.px_to_dip_24));
+            numTextsize = array.getDimension(R.styleable.CustomProgressView_numTextSize, getResources().getDimension(R.dimen.px_to_dip_48));
+            unitTextsize = array.getDimension(R.styleable.CustomProgressView_unitTextSize, getResources().getDimension(R.dimen.px_to_dip_24));
+            circleArc = array.getFloat(R.styleable.CustomProgressView_circle_arc, 0);
 
-            titleTextColor = array.getColor(R.styleable.ProgressView_titleTextColor, Color.parseColor("#656d78"));
-            numTextColor = array.getColor(R.styleable.ProgressView_numTextColor, Color.parseColor("#4fc1e9"));
-            unitTextColor = array.getColor(R.styleable.ProgressView_unitTextColor, Color.parseColor("#4fc1e9"));
+            titleTextColor = array.getColor(R.styleable.CustomProgressView_titleTextColor, Color.parseColor("#656d78"));
+            numTextColor = array.getColor(R.styleable.CustomProgressView_numTextColor, Color.parseColor("#4fc1e9"));
+            unitTextColor = array.getColor(R.styleable.CustomProgressView_unitTextColor, Color.parseColor("#4fc1e9"));
 
-            backCircleWidth = array.getDimension(R.styleable.ProgressView_backCircleWidth, getResources().getDimension(R.dimen.px_to_dip_12));
-            outerCircleWidth = array.getDimension(R.styleable.ProgressView_outerCircleWidth, getResources().getDimension(R.dimen.px_to_dip_20));
+            backCircleWidth = array.getDimension(R.styleable.CustomProgressView_backCircleWidth, getResources().getDimension(R.dimen.px_to_dip_12));
+            outerCircleWidth = array.getDimension(R.styleable.CustomProgressView_outerCircleWidth, getResources().getDimension(R.dimen.px_to_dip_20));
 
-            backCircleColor = array.getColor(R.styleable.ProgressView_backCircleColor, Color.parseColor("#e6e9ed"));
-            outerCircleColor = array.getColor(R.styleable.ProgressView_outerCircleColor, Color.parseColor("#4fc1e9"));
+            backCircleColor = array.getColor(R.styleable.CustomProgressView_backCircleColor, Color.parseColor("#e6e9ed"));
+            outerCircleColor = array.getColor(R.styleable.CustomProgressView_outerCircleColor, Color.parseColor("#4fc1e9"));
 
-            endCircleWidth = array.getDimension(R.styleable.ProgressView_endCircleWidth, getResources().getDimension(R.dimen.px_to_dip_24));
-            endCircleColor = array.getColor(R.styleable.ProgressView_endCircleColor, Color.parseColor("#4fc1e9"));
+            endCircleWidth = array.getDimension(R.styleable.CustomProgressView_endCircleWidth, getResources().getDimension(R.dimen.px_to_dip_24));
+            endCircleColor = array.getColor(R.styleable.CustomProgressView_endCircleColor, Color.parseColor("#4fc1e9"));
 
-            edgeDistance = array.getDimension(R.styleable.ProgressView_edgeDistance, getResources().getDimension(R.dimen.px_to_dip_12));
+            edgeDistance = array.getDimension(R.styleable.CustomProgressView_edgeDistance, getResources().getDimension(R.dimen.px_to_dip_12));
 
             backCirclePaint = new Paint();
             backCirclePaint.setAntiAlias(true);
@@ -132,7 +132,7 @@ public class CustomProgressView extends View {
             unitPaint.setAntiAlias(true);
             unitPaint.setColor(unitTextColor);
             unitPaint.setTextSize(unitTextsize);
-
+            array.recycle();
         }
     }
 
@@ -162,7 +162,7 @@ public class CustomProgressView extends View {
         int centerY = height / 2;
 
         //计算半径
-        float radius = (width / 2) - edgeDistance;
+        float radius = (width / 2.0f) - edgeDistance;
 
         //半径是圆心与画出来的圆环中间点连起来的位置
         //画背景圆
@@ -188,12 +188,14 @@ public class CustomProgressView extends View {
 
         //我这里规定进度在0~100%的时候才会画终点小圆，可以自由改动
         if (currentPercent < 1 && currentPercent > 0) {
-            canvas.drawCircle(centerX + rectF.width() / 2 * (float) Math.sin(360 * currentPercent * Math.PI / 180),
-                    centerY - rectF.width() / 2 * (float) Math.cos(360 * currentPercent * Math.PI / 180), endCircleWidth / 2, endCirclePaint);
+//            float jiaodu = 360 * currentPercent;
+            float jiaodu = circleArc;
+            canvas.drawCircle(centerX + rectF.width() / 2 * (float) Math.sin(jiaodu * Math.PI / 180),
+                    centerY - rectF.width() / 2 * (float) Math.cos(jiaodu * Math.PI / 180), endCircleWidth / 2, endCirclePaint);
 
 
-            canvas.drawCircle(centerX + rectF.width() / 2 * (float) Math.sin(360 * currentPercent * Math.PI / 180),
-                    centerY - rectF.width() / 2 * (float) Math.cos(360 * currentPercent * Math.PI / 180), endCircleWidth / 4, endCirclePaint2);
+            canvas.drawCircle(centerX + rectF.width() / 2 * (float) Math.sin(jiaodu * Math.PI / 180),
+                    centerY - rectF.width() / 2 * (float) Math.cos(jiaodu * Math.PI / 180), endCircleWidth / 4, endCirclePaint2);
 
         }
     }
