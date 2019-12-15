@@ -11,6 +11,13 @@ public class HomeModel implements HomeContract.Model {
 
     @Override
     public void setData(HomePresenter homePresenter) {
+        //获取到数据后传给P层
         homePresenter.getData(str);
+    }
+
+    @Override
+    public void requestData(String param) {
+        //模拟网络请求获取数据
+        str += param;
     }
 }

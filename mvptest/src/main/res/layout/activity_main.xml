@@ -3,12 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:onClick="showResult"
+    <EditText
+        android:id="@+id/et_input"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="输入要加工的数据"
+        android:inputType="text" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showResult"
         android:text="通过MVP模式显示结果" />
 
 </LinearLayout>

@@ -16,13 +16,18 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void getData(String data) {
+        //在V层显示数据的方法
         view.showData(data);
     }
 
     /**
      * activity调用获取数据的方法
+     *
+     * @param param activity层网络请求的参数
      */
-    public void setShowData() {
+    public void setShowData(String param) {
+        //先网络请求获取数据，然后回传给P层
+        MODEL.requestData(param);
         MODEL.setData(this);
     }
 }
