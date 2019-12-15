@@ -1,1 +1,1 @@
-include ':app', ':CopyFileApp'
+include ':app', ':CopyFileApp', ':mvptest'
