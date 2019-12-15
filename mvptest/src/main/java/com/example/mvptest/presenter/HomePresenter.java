@@ -1,5 +1,6 @@
 package com.example.mvptest.presenter;
 
+import com.example.mvptest.bean.HomeBean;
 import com.example.mvptest.contract.HomeContract;
 import com.example.mvptest.model.HomeModel;
 
@@ -15,9 +16,14 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
-    public void getData(String data) {
+    public void getSuccessData(HomeBean data) {
         //在V层显示数据的方法
-        view.showData(data);
+        view.showSuccessData(data);
+    }
+
+    @Override
+    public void getFailData(String data) {
+        view.showFailData(data);
     }
 
     /**

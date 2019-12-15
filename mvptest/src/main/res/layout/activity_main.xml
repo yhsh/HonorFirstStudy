@@ -8,16 +8,28 @@
 
     <EditText
         android:id="@+id/et_input"
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="输入要加工的数据"
-        android:inputType="text" />
+        android:gravity="center"
+        android:inputType="text"
+        android:text="408" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="showResult"
         android:text="通过MVP模式显示结果" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_shoe_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black" />
+
+    </ScrollView>
 
 </LinearLayout>

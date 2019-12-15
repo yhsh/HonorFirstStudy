@@ -1,5 +1,6 @@
 package com.example.mvptest.contract;
 
+import com.example.mvptest.bean.HomeBean;
 import com.example.mvptest.presenter.HomePresenter;
 
 /**
@@ -28,7 +29,14 @@ public interface HomeContract {
          *
          * @param data 拿到的数据
          */
-        void showData(String data);
+        void showSuccessData(HomeBean data);
+
+        /**
+         * 显示失败的数据
+         *
+         * @param data 数据
+         */
+        void showFailData(String data);
 
     }
 
@@ -41,6 +49,13 @@ public interface HomeContract {
          *
          * @param data 拿到的数据
          */
-        void getData(String data);
+        void getSuccessData(HomeBean data);
+
+        /**
+         * 失败的数据
+         *
+         * @param data 数据
+         */
+        void getFailData(String data);
     }
 }

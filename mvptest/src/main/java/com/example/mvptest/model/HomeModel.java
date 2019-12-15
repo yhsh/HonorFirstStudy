@@ -1,23 +1,60 @@
 package com.example.mvptest.model;
 
+import android.util.Log;
+
+import com.example.mvptest.api.RequestApi;
+import com.example.mvptest.bean.HomeBean;
 import com.example.mvptest.contract.HomeContract;
 import com.example.mvptest.presenter.HomePresenter;
+import com.google.gson.Gson;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * @author xiayiye
  */
 public class HomeModel implements HomeContract.Model {
     private String str = "要显示的数据";
+    private HomePresenter homePresenter;
 
     @Override
     public void setData(HomePresenter homePresenter) {
-        //获取到数据后传给P层
-        homePresenter.getData(str);
+        this.homePresenter = homePresenter;
     }
 
+    /**
+     * 获取到数据后传递给P层
+     *
+     * @param param 参数
+     */
     @Override
     public void requestData(String param) {
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://wanandroid.com/").addConverterFactory(GsonConverterFactory.create()).build();
+        RequestApi requestApi = retrofit.create(RequestApi.class);
+        Call<HomeBean> homeBeanCall = requestApi.requestData(param);
+        homeBeanCall.enqueue(new Callback<HomeBean>() {
+            @Override
+            public void onResponse(Call<HomeBean> call, Response<HomeBean> response) {
+                HomeBean body = response.body();
+                String s = new Gson().toJson(response.body());
+                Log.e("打印：", s + "=");
+                if (body.getData().getDatas().size() > 0) {
+                    homePresenter.getSuccessData(body);
+                } else {
+                    homePresenter.getFailData("暂无数据");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HomeBean> call, Throwable throwable) {
+                homePresenter.getFailData("调用失败");
+            }
+        });
         //模拟网络请求获取数据
-        str += param;
+//        str += param;
     }
 }
