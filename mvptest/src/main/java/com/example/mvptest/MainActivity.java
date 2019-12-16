@@ -14,6 +14,8 @@ import com.google.gson.Gson;
 
 /**
  * @author xiayiye
+ * 查看当前类的子父类关系快捷键：ctrl + h
+ * 查看当前类的结构 alt + 7
  */
 public class MainActivity extends Activity implements HomeContract.Views {
 
