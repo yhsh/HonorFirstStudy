@@ -28,5 +28,11 @@ public class SingleInstanceDemo {
                 }
             });
         }
+        YhshThreadPoolFactory.getInstance().executeRequest(new Runnable() {
+            @Override
+            public void run() {
+                //写相应的网络请求逻辑即可
+            }
+        });
     }
 }
