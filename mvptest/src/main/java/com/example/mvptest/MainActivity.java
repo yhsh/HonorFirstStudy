@@ -16,6 +16,10 @@ import com.example.mvptest.presenter.HomePresenter;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -33,6 +37,8 @@ public class MainActivity extends Activity implements HomeContract.Views {
     private HomePresenter homePresenter;
     private EditText etInput;
     private static Gson gson;
+    private int corePoolSize = Runtime.getRuntime().availableProcessors() + 1;
+    private int maxiNumPoolSize = corePoolSize * 2;
 
     static {
         gson = new Gson();
@@ -51,30 +57,29 @@ public class MainActivity extends Activity implements HomeContract.Views {
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder().url("https://wanandroid.com/wxarticle/list/408/1/json").build();
         Log.e("打印线程1", Thread.currentThread().getName());
-        new Thread() {
-            @Override
-            public void run() {
-                okHttpClient.newCall(request).enqueue(new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        Log.e("打印线程2", Thread.currentThread().getName() + "==" + e.getMessage());
-                    }
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
+                corePoolSize,
+                maxiNumPoolSize,
+                3,
+                TimeUnit.HOURS,
+                new LinkedBlockingQueue<>(),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.AbortPolicy());
 
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        Log.e("打印线程3", Thread.currentThread().getName());
-                        String data = response.body().string();
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                Toast.makeText(MainActivity.this, data, Toast.LENGTH_LONG).show();
-                            }
-                        });
-                        Log.e("打印结果：", data);
-                    }
-                });
+        threadPoolExecutor.execute(() -> okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("打印线程2", Thread.currentThread().getName() + "==" + e.getMessage());
             }
-        }.start();
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.e("打印线程3", Thread.currentThread().getName());
+                String data = response.body().string();
+                handler.post(() -> Toast.makeText(MainActivity.this, data, Toast.LENGTH_LONG).show());
+                Log.e("打印结果：", data);
+            }
+        }));
         //遍历树形结构view
         ViewGroup llRoot = findViewById(R.id.ll_root);
         forData(llRoot);
