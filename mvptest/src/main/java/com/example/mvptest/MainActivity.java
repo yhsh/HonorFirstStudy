@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -66,7 +67,7 @@ public class MainActivity extends Activity implements HomeContract.Views {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(MainActivity.this,data,Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this, data, Toast.LENGTH_LONG).show();
                             }
                         });
                         Log.e("打印结果：", data);
@@ -74,6 +75,26 @@ public class MainActivity extends Activity implements HomeContract.Views {
                 });
             }
         }.start();
+        //遍历树形结构view
+        ViewGroup llRoot = findViewById(R.id.ll_root);
+        forData(llRoot);
+    }
+
+    /**
+     * 遍历ViewGroup的方法
+     *
+     * @param llRoot 根VieGroup
+     */
+    private void forData(ViewGroup llRoot) {
+        int childCount = llRoot.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            if (llRoot.getChildAt(i) instanceof ViewGroup) {
+                Log.e("打印ViewGroup的id", llRoot.getChildAt(i).getId() + "=");
+                forData((ViewGroup) llRoot.getChildAt(i));
+            } else {
+                Log.e("打印View的id", llRoot.getChildAt(i).getId() + "=");
+            }
+        }
     }
 
     public void showResult(View view) {
