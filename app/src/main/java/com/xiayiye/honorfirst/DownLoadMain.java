@@ -40,5 +40,33 @@ public class DownLoadMain {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+        System.out.println(action(3.0,4.0));
+    }
+
+    public static double getResult(double x, double y) {
+        if (y > 0) {
+            return x * getResult(x, y - 1);
+        } else if (y < 0) {
+            return (x * getResult(x, -y - 1));
+        } else {
+            return 1;
+        }
+    }
+
+    public static double fuzhishu(double x, double y) {
+        double i = getResult(x, y);
+
+        return 1 / i;
+    }
+
+    public static double action(double x, double y) {
+
+        if (y > 0) {
+            return getResult(x, y);
+        } else if (y < 0) {
+            return fuzhishu(x, y);
+        } else {
+            return 1;
+        }
     }
 }

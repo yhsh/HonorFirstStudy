@@ -34,5 +34,20 @@ public class SingleInstanceDemo {
                 //写相应的网络请求逻辑即可
             }
         });
+        System.out.println("打印结果：" + getResult(3, 5));
+    }
+
+    /**
+     * 思路：利用递归实现
+     * Java 版本：计算一个数的n次幂的方法
+     *
+     * @param number 要计算的数
+     * @param count  要计算数的幂
+     */
+    private static int getResult(int number, int count) {
+        if (count > 0) {
+            return number * getResult(number, count - 1);
+        }
+        return 1;
     }
 }
