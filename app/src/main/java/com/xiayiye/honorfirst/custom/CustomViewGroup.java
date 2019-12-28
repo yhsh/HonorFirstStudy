@@ -60,25 +60,19 @@ public class CustomViewGroup extends LinearLayout {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         Log.e("打印CustomViewGroup", "dispatchTouchEvent");
-        boolean b = super.dispatchTouchEvent(ev);
-        Log.e("打印CustomViewGroup", "dispatchTouchEvent:" + b);
-        return b;
+        return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         Log.e("打印CustomViewGroup", "onInterceptTouchEvent");
-        boolean b = super.onInterceptTouchEvent(ev);
-        Log.e("打印CustomViewGroup", "onInterceptTouchEvent:" + b);
-        return b;
+        return super.onInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.e("打印CustomViewGroup", "onTouchEvent");
         Toast.makeText(getContext(), "点击了外层的ViewGroup", Toast.LENGTH_SHORT).show();
-        boolean b = super.onTouchEvent(event);
-        Log.e("打印CustomViewGroup", "onTouchEvent:" + b);
-        return b;
+        return super.onTouchEvent(event);
     }
 }

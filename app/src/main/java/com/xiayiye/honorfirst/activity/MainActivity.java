@@ -6,6 +6,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.xiayiye.honorfirst.R;
@@ -37,6 +43,7 @@ public class MainActivity extends Activity {
             return new Thread(r, "AsyncTask #" + mCount.getAndIncrement());
         }
     };
+    private ImageView ivStart;
 
     /**
      * An {@link Executor} that can be used to execute tasks in parallel.
@@ -66,6 +73,7 @@ public class MainActivity extends Activity {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         ExecutorService executorService1 = Executors.newCachedThreadPool();
         ExecutorService executorService2 = Executors.newFixedThreadPool(5);
+        ivStart = findViewById(R.id.iv_start);
     }
 
     public void first(View view) {
@@ -131,6 +139,53 @@ public class MainActivity extends Activity {
     public void toDialogActivity(View view) {
         startActivity(new Intent(this, DialogActivity.class));
         overridePendingTransition(0, 0);
+    }
+
+    public void click1(View view) {
+        AlphaAnimation animation = new AlphaAnimation(1.0f, 0.2f);
+        animation.setDuration(1000);
+        animation.setFillAfter(true);
+        animation.setRepeatCount(2);
+        ivStart.startAnimation(animation);
+    }
+
+    public void click2(View view) {
+//        RotateAnimation rotateAnimation = new RotateAnimation(0, 180);
+        RotateAnimation rotateAnimation = new RotateAnimation(0f, 360f, 5f, 5f);
+//        RotateAnimation rotateAnimation = new RotateAnimation(0f, 360f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotateAnimation.setDuration(1000);
+        rotateAnimation.setRepeatCount(2);
+        rotateAnimation.setRepeatMode(Animation.REVERSE);
+        ivStart.startAnimation(rotateAnimation);
+    }
+
+    public void click3(View view) {
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0.5f, 2.0f, 0.5f, 2.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        scaleAnimation.setDuration(1000);
+        scaleAnimation.setRepeatCount(2);
+        scaleAnimation.setRepeatMode(Animation.REVERSE);
+        ivStart.startAnimation(scaleAnimation);
+    }
+
+    public void click4(View view) {
+        TranslateAnimation translateAnimation = new TranslateAnimation(
+                Animation.RELATIVE_TO_SELF, 1.0f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 1.0f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+        translateAnimation.setDuration(1000);
+        translateAnimation.setRepeatCount(2);
+        translateAnimation.setRepeatMode(Animation.REVERSE);
+        ivStart.startAnimation(translateAnimation);
+    }
+
+    public void click5(View view) {
+        myTask.execute(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
     }
 
     class myTask extends AsyncTask<Integer, Integer, String> {

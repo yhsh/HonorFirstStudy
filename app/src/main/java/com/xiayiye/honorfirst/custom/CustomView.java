@@ -31,17 +31,13 @@ public class CustomView extends View {
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         Log.e("打印CustomView", "dispatchTouchEvent");
-        boolean b = super.dispatchTouchEvent(event);
-        Log.e("打印CustomView", "dispatchTouchEvent:" + b);
-        return b;
+        return super.dispatchTouchEvent(event);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.e("打印CustomView", "onTouchEvent");
         Toast.makeText(getContext(), "点击了里面的CustomView", Toast.LENGTH_SHORT).show();
-        boolean b = super.onTouchEvent(event);
-        Log.e("打印CustomView", "onTouchEvent:" + b);
-        return true;
+        return super.onTouchEvent(event);
     }
 }

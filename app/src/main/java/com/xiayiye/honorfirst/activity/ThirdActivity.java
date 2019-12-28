@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.xiayiye.honorfirst.R;
@@ -69,5 +70,17 @@ public class ThirdActivity extends Activity {
     protected void onStop() {
         super.onStop();
         Log.e("打印生命周期3", "onStop");
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.e("打印activity:","dispatchTouchEvent");
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Log.e("打印activity:","onTouchEvent");
+        return super.onTouchEvent(event);
     }
 }
