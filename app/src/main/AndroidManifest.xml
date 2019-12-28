@@ -22,6 +22,7 @@
         <activity android:name=".activity.SecondActivity" />
         <activity android:name=".activity.ThirdActivity" />
         <activity android:name=".activity.FourActivity" />
+        <activity android:name=".activity.ScrollViewActivity" />
 
         <meta-data
             android:name="UMENG_CHANNEL"

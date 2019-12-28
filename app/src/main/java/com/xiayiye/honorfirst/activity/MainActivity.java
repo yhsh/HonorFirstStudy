@@ -12,6 +12,7 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.xiayiye.honorfirst.R;
@@ -186,6 +187,14 @@ public class MainActivity extends Activity {
 
             }
         });
+    }
+
+    /**
+     * 滑动冲突解决
+     * @param view view
+     */
+    public void errorActivity(View view) {
+        startActivity(new Intent(this, ScrollViewActivity.class));
     }
 
     class myTask extends AsyncTask<Integer, Integer, String> {

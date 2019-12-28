@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.xiayiye.honorfirst.custom.MyScrollView
+        android:id="@+id/my_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="控件工具库感觉可视对讲更加快速的开工建设的数据库的吧记得发货及时的规范化建设大哥是德国i速递公司的itiii根据保监会吧v就被对方举报v警方逮捕v就解放碑v举办的v酒店房间布局的方式比较举报v的发表v简单方便v解放东北局的发表吧v开始打包v举报v金士顿发布v豆瓣v发生蛋白v简单方便v简单方便v就"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:text="更好傻瓜还是两大公司代理公司代理公司的当时当时的第三个第四个扣税的山豆根山豆根绝对是但是国内速度更快速度的速度更快速度更快速度看公司贷款公司的但是不管是都不敢开始改变啥都看不见科比的身上的不是的不是的是的是的，巴萨的比赛不得不说担保公司担保公司代表的事实得瑟得瑟的公司大苏打撒旦版本是吧"
+                android:textSize="40sp" />
+
+            <com.xiayiye.honorfirst.custom.MyListView
+                android:id="@+id/id_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:divider="#ffff0000"
+                android:dividerHeight="1px"
+                android:entries="@array/data" />
+        </LinearLayout>
+
+    </com.xiayiye.honorfirst.custom.MyScrollView>
+
+</LinearLayout>
