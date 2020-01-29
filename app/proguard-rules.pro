@@ -7,13 +7,13 @@
 //测试数据，检查git冲突的方法
 # If your project uses WebView with JS, uncomment the following
 //目前提交无误
-# and specify the fully qualified class name to the JavaScript interface
+# and specify the fully qualified 送到家里的空间里class name to the JavaScript interface
 # class:
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
-# Uncomment this to preserve the line number information for
+//更多快乐快乐打卡领导说了凯迪拉克发来的会计法律框架
+# Uncomment this to preserve 士大夫但是的实力了多少了的老大啦the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
 
