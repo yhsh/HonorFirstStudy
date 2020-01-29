@@ -9,9 +9,18 @@
 //目前提交无误
 # and specify the fully qualified class name to the JavaScript interface
 # class:
+一般使用最新版本就可以了
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
 
 测试数据最新版本
 不知道对不对
+试试对不对
+# Uncomment this to preserve the line number information for
+# debugging stack traces.
+#-keepattributes SourceFile,LineNumberTable
+
+# If you keep the line number information, uncomment this to
+# hide the original source file name.
+#-renamesourcefileattribute SourceFile
