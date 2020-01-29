@@ -1,8 +1,9 @@
 # Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
+# You can control the set of applied 明天继续configuration files using the
+话不多说
+
+开始解决冲突文件
+
 #   http://developer.android.com/guide/developing/tools/proguard.html
 //测试数据，检查git冲突的方法
 # If your project uses WebView with JS, uncomment the following
