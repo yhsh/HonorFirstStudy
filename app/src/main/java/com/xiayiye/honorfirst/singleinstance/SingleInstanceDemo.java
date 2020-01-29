@@ -1,5 +1,9 @@
 package com.xiayiye.honorfirst.singleinstance;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -10,6 +14,21 @@ import java.util.concurrent.TimeUnit;
  */
 public class SingleInstanceDemo {
     public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        Class<? extends List> aClass = list.getClass();
+        try {
+            Method add = aClass.getMethod("add", Object.class);
+            try {
+                add.invoke(list,"测试数据");
+                System.out.println(list);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
         final int corePoolSize = Runtime.getRuntime().availableProcessors();
         int maxiNumPoolSize = corePoolSize * 2 + 1;
         for (int i = 0; i < 10; i++) {
