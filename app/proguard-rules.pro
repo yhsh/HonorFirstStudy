@@ -1,11 +1,11 @@
 # Add project specific ProGuard rules here.
-# You can control the set of applied 明天继续configuration files using the
+# You can control the set of applied 好好看看看看和费用乙方有防腐剂防腐剂 files using the
 话不多说
 
-开始解决冲突文件
+开始解决解决了举报冲突文件
 
 #   http://developer.android.com/guide/developing/tools/proguard.html
-//测试数据，检查git冲突的方法
+//测试数据，检查git冲0707070707突的方法
 # If your project uses WebView with JS, uncomment the following
 //目前提交无误
 # and specify the fully qualified class name to the JavaScript interface
