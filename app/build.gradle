@@ -1,5 +1,10 @@
 apply plugin: 'com.android.application'
 
+//用于下面添加时间到命名中的方法
+def releaseTime() {
+    //GMT+8是因为北京时间和GMT有8个小时时差。
+    return new Date().format("yyyy-MM-dd HH：mm：ss", TimeZone.getTimeZone("GMT+8"))
+}
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -31,6 +36,17 @@ android {
         }
 
     }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def fileName = "下一页" + "_V${defaultConfig.versionName}_C${defaultConfig.versionCode}_${releaseTime()}_" +
+                    variant.name +
+                    ".apk"
+            outputFileName = fileName
+        }
+    }
+
+
 }
 
 dependencies {
