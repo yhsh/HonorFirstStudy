@@ -1,6 +1,8 @@
 package com.example.mvptest;
 
 import android.app.Activity;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -83,6 +85,17 @@ public class MainActivity extends Activity implements HomeContract.Views {
         //遍历树形结构view
         ViewGroup llRoot = findViewById(R.id.ll_root);
         forData(llRoot);
+        showValue();
+    }
+
+    private void showValue() {
+        try {
+            PackageManager pm = getPackageManager();
+            ApplicationInfo appInfo = pm.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            String channel = appInfo.metaData.getString("XiaYiYe");
+            Toast.makeText(this, channel, Toast.LENGTH_LONG).show();
+        } catch (PackageManager.NameNotFoundException ignored) {
+        }
     }
 
     /**

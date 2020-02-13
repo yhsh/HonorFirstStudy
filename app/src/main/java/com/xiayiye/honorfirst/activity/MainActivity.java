@@ -2,6 +2,8 @@ package com.xiayiye.honorfirst.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -75,6 +77,17 @@ public class MainActivity extends Activity {
         ExecutorService executorService1 = Executors.newCachedThreadPool();
         ExecutorService executorService2 = Executors.newFixedThreadPool(5);
         ivStart = findViewById(R.id.iv_start);
+        showValue();
+    }
+
+    private void showValue() {
+        try {
+            PackageManager pm = getPackageManager();
+            ApplicationInfo appInfo = pm.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            String channel = appInfo.metaData.getString("XiaYiYe");
+            Toast.makeText(this, channel, Toast.LENGTH_LONG).show();
+        } catch (PackageManager.NameNotFoundException ignored) {
+        }
     }
 
     public void first(View view) {
@@ -191,6 +204,7 @@ public class MainActivity extends Activity {
 
     /**
      * 滑动冲突解决
+     *
      * @param view view
      */
     public void errorActivity(View view) {

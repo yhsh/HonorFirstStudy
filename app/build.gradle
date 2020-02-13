@@ -5,6 +5,7 @@ def releaseTime() {
     //GMT+8是因为北京时间和GMT有8个小时时差。
     return new Date().format("yyyy-MM-dd HH：mm：ss", TimeZone.getTimeZone("GMT+8"))
 }
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -22,19 +23,24 @@ android {
         }
     }
     productFlavors {
-        wandoujia {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+        "wandoujia" {
+
         }
-        xiaomi {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+        "xiaomi" {
+
         }
-        yyb {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yyb"]
+        "yyb" {
+
+        }
+        "huawei" {
+
+        }
+        baidu {
+
         }
         productFlavors.all {
-            flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+            flavor -> flavor.manifestPlaceholders = [XiaYiYeValue: name]
         }
-
     }
 
     applicationVariants.all { variant ->

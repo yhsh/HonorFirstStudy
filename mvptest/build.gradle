@@ -1,5 +1,3 @@
-import org.w3c.dom.DOMImplementation
-
 apply plugin: 'com.android.application'
 
 android {
@@ -12,6 +10,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        flavorDimensions "versionCode"
     }
 
     buildTypes {
@@ -24,7 +23,20 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
-
+    productFlavors {
+        tool {
+            manifestPlaceholders = [XiaYiYeValue: "360"]
+        }
+        yyb {
+            manifestPlaceholders = [XiaYiYeValue: "yyb"]
+        }
+        xiaomi {
+            manifestPlaceholders = [XiaYiYeValue: "xiaomi"]
+        }
+        huawei {
+            manifestPlaceholders = [XiaYiYeValue: "huawei"]
+        }
+    }
 }
 
 dependencies {
