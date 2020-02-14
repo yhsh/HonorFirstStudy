@@ -23,6 +23,18 @@
         <activity android:name=".activity.ThirdActivity" />
         <activity android:name=".activity.FourActivity" />
         <activity android:name=".activity.ScrollViewActivity" />
+        <activity android:name=".activity.BrowserOpenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="xiayiye"
+                    android:scheme="yhsh" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="XiaYiYe"

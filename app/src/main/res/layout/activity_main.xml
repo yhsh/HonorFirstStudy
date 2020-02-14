@@ -30,6 +30,12 @@
         android:onClick="errorActivity"
         android:text="滑动冲突解决" />
 
+    <Button
+        android:onClick="openBrowser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开浏览器" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

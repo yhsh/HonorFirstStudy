@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +15,6 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.xiayiye.honorfirst.R;
@@ -209,6 +209,14 @@ public class MainActivity extends Activity {
      */
     public void errorActivity(View view) {
         startActivity(new Intent(this, ScrollViewActivity.class));
+    }
+
+    public void openBrowser(View view) {
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        Uri contentUrl = Uri.parse("http://www.baidu.com");
+        intent.setData(contentUrl);
+        startActivity(intent);
     }
 
     class myTask extends AsyncTask<Integer, Integer, String> {
