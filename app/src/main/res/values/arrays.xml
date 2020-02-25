@@ -18,4 +18,8 @@
         <item>公钥</item>
         <item>即可</item>
     </string-array>
+    <string-array name="app">
+        <item>以前学习模块</item>
+        <item>RxJava学习</item>
+    </string-array>
 </resources>
