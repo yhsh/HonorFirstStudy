@@ -14,15 +14,10 @@
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.DialogActivity" />
-        <activity android:name=".activity.SecondActivity" />
-        <activity android:name=".activity.ThirdActivity" />
-        <activity android:name=".activity.FourActivity" />
-        <activity android:name=".activity.ScrollViewActivity" />
         <activity android:name=".activity.BrowserOpenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -35,7 +30,15 @@
                     android:scheme="yhsh" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.DialogActivity" />
+        <activity android:name=".activity.SecondActivity" />
+        <activity android:name=".activity.ThirdActivity" />
+        <activity android:name=".activity.FourActivity" />
+        <activity android:name=".activity.ScrollViewActivity" />
         <activity android:name=".activity.RxJavaStudyActivity" />
+        <activity android:name=".activity.RxJavaSearchActivity" />
+        <activity android:name=".activity.RxJavaClickOneActivity" />
 
         <meta-data
             android:name="XiaYiYe"

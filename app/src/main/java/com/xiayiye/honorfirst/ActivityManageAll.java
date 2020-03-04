@@ -43,20 +43,20 @@ import com.xiayiye.honorfirst.utils.XiaYiYeUtils;
  * 文件包名：com.xiayiye.honorfirst.utils
  * 文件说明：Activit操作相关类
  */
-public class ActivityManage {
-    private ActivityManage() {
+public class ActivityManageAll {
+    private ActivityManageAll() {
     }
 
     /**
      * 创建单例方法一
      */
-    private static ActivityManage activityManage = new ActivityManage();
+    private static ActivityManageAll activityManageAll = new ActivityManageAll();
 
-    public static ActivityManage getInstance1() {
-        if (activityManage == null) {
-            activityManage = new ActivityManage();
+    public static ActivityManageAll getInstance1() {
+        if (activityManageAll == null) {
+            activityManageAll = new ActivityManageAll();
         }
-        return activityManage;
+        return activityManageAll;
     }
 
     /**
@@ -64,12 +64,12 @@ public class ActivityManage {
      *
      * @return 返回单例对象
      */
-    public static ActivityManage getInstance2() {
+    public static ActivityManageAll getInstance2() {
         return CreateActivityManageObject.ACTIVITY_MANAGE;
     }
 
     private static class CreateActivityManageObject {
-        private static final ActivityManage ACTIVITY_MANAGE = new ActivityManage();
+        private static final ActivityManageAll ACTIVITY_MANAGE = new ActivityManageAll();
     }
 
     /**

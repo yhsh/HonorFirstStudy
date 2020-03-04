@@ -7,7 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.xiayiye.honorfirst.R;
-import com.xiayiye.honorfirst.ActivityManage;
+import com.xiayiye.honorfirst.ActivityManageAll;
 
 public class AppActivity extends Activity implements AdapterView.OnItemClickListener {
 
@@ -35,10 +35,10 @@ public class AppActivity extends Activity implements AdapterView.OnItemClickList
     }
 
     private void toRxJavaStudy() {
-        ActivityManage.getInstance2().goActivity(RxJavaStudyActivity.class);
+        ActivityManageAll.getInstance2().goActivity(RxJavaStudyActivity.class);
     }
 
     private void goToBeforeStudy() {
-        ActivityManage.getInstance1().goActivity(MainActivity.class);
+        ActivityManageAll.getInstance1().goActivity(MainActivity.class);
     }
 }

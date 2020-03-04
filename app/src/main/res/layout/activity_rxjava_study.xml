@@ -4,16 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:onClick="start"
-        android:text="@string/start_rxjava" />
-
     <TextView
         android:id="@+id/tv_show_rxjava_data"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="45dp"
         android:gravity="center" />
+
+    <ListView
+        android:id="@+id/lv_rxjava_study"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:entries="@array/rx_java" />
 </LinearLayout>

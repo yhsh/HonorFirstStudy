@@ -62,8 +62,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "io.reactivex.rxjava3:rxjava:3.0.0"
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+//    implementation "io.reactivex.rxjava3:rxjava:3.0.0"
+//    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    // rxbinding3 会自动依赖RxJava和RxAndroid两个对应版本的包
+    implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0'
 //    implementation 'com.android.support:appcompat-v7:28.0.0'
 //    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

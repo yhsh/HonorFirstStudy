@@ -22,4 +22,10 @@
         <item>以前学习模块</item>
         <item>RxJava学习</item>
     </string-array>
+    <string-array name="rx_java">
+        <item>调用RxJava</item>
+        <item>RxJava操作符之登录获取数据</item>
+        <item>RxJava操作符之EditText搜索案例</item>
+        <item>RxJava操作符之按钮防重复点击</item>
+    </string-array>
 </resources>

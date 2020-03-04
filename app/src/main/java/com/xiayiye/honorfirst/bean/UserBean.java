@@ -1,4 +1,4 @@
-package com.xiayiye.honorfirst.utils;
+package com.xiayiye.honorfirst.bean;
 /*
  * Copyright (c) 2020, smuyyh@gmail.com All Rights Reserved.
  * #                                                   #
@@ -26,62 +26,34 @@ package com.xiayiye.honorfirst.utils;
  * #                                                   #
  */
 
-import android.app.Application;
-
 /**
  * @author 下一页5（轻飞扬）
- * 创建时间：2020/2/25 21:22
+ * 创建时间：2020/2/26 17:49
  * 个人小站：http://yhsh.wap.ai(已挂)
  * 最新小站：http://www.iyhsh.icoc.in
  * 联系作者：企鹅 13343401268
  * 博客地址：http://blog.csdn.net/xiayiye5
  * 项目名称：HonorFirst
- * 文件包名：com.xiayiye.honorfirst.utils
- * 文件说明：通过反射获取全局的applicaition
+ * 文件包名：com.xiayiye.honorfirst.bean
+ * 文件说明：
  */
-public class XiaYiYeUtils {
+public class UserBean {
+    private String name;
+    private String password;
 
-    private Application currentApplication;
-
-    private XiaYiYeUtils() {
+    public String getName() {
+        return name;
     }
 
-    public static XiaYiYeUtils getInstance() {
-        return CreateXiaYiYeUtilsObject.XIA_YI_YE_UTILS;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    private static class CreateXiaYiYeUtilsObject {
-        private final static XiaYiYeUtils XIA_YI_YE_UTILS = new XiaYiYeUtils();
+    public String getPassword() {
+        return password;
     }
 
-    /**
-     * 通过反射获取Application对象的方法
-     *
-     * @return 返回 application俺对象
-     */
-    public Application getApplicationByReflection() {
-        try {
-            if (currentApplication == null) {
-                currentApplication = (Application) Class.forName("android.app.ActivityThread").getMethod("currentApplication").invoke(null, (Object[]) null);
-            }
-            return currentApplication;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    /**
-     * ******防止按钮连续点击*******
-     */
-    private long lastClickTime;
-
-    public synchronized boolean isFastClick() {
-        long time = System.currentTimeMillis();
-        if (time - lastClickTime < 500) {
-            return true;
-        }
-        lastClickTime = time;
-        return false;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
