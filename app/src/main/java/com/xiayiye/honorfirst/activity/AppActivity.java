@@ -30,8 +30,19 @@ public class AppActivity extends Activity implements AdapterView.OnItemClickList
                 //跳转RxJava学习页面
                 toRxJavaStudy();
                 break;
+            case 2:
+                //跳转购物车抛物线动画页面
+                linAnimate();
+                break;
             default:
         }
+    }
+
+    /**
+     * 抛物线动画
+     */
+    private void linAnimate() {
+        ActivityManageAll.getInstance2().goActivity(LineAnimateActivity.class);
     }
 
     private void toRxJavaStudy() {

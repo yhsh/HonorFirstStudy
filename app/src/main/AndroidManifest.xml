@@ -39,6 +39,9 @@
         <activity android:name=".activity.RxJavaStudyActivity" />
         <activity android:name=".activity.RxJavaSearchActivity" />
         <activity android:name=".activity.RxJavaClickOneActivity" />
+        <activity
+            android:name=".activity.LineAnimateActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
 
         <meta-data
             android:name="XiaYiYe"

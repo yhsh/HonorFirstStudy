@@ -21,6 +21,7 @@
     <string-array name="app">
         <item>以前学习模块</item>
         <item>RxJava学习</item>
+        <item>购物车抛物线动画</item>
     </string-array>
     <string-array name="rx_java">
         <item>调用RxJava</item>
