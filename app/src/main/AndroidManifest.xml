@@ -10,6 +10,13 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
         <activity
+            android:name=".jetpack.databinding.DataBindingActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".jetpack.viewmodel.ViewModelActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".jetpack.JetPackActivity" />
+        <activity
             android:name=".activity.AppActivity"
             android:launchMode="singleTask">
             <intent-filter>
@@ -42,6 +49,9 @@
         <activity
             android:name=".activity.LineAnimateActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <activity
+            android:name=".jetpack.livedata.LiveDataActivity"
+            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="XiaYiYe"

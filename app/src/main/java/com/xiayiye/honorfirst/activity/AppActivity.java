@@ -8,7 +8,11 @@ import android.widget.ListView;
 
 import com.xiayiye.honorfirst.R;
 import com.xiayiye.honorfirst.ActivityManageAll;
+import com.xiayiye.honorfirst.jetpack.JetPackActivity;
 
+/**
+ * @author xiayiye
+ */
 public class AppActivity extends Activity implements AdapterView.OnItemClickListener {
 
     @Override
@@ -34,8 +38,15 @@ public class AppActivity extends Activity implements AdapterView.OnItemClickList
                 //跳转购物车抛物线动画页面
                 linAnimate();
                 break;
+            case 3:
+                goJetPack();
+                break;
             default:
         }
+    }
+
+    private void goJetPack() {
+        ActivityManageAll.getInstance2().goActivity(JetPackActivity.class);
     }
 
     /**

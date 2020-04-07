@@ -22,6 +22,12 @@
         <item>以前学习模块</item>
         <item>RxJava学习</item>
         <item>购物车抛物线动画</item>
+        <item>JetPack学习</item>
+    </string-array>
+    <string-array name="jetPack">
+        <item>ViewModel学习</item>
+        <item>LiveData学习</item>
+        <item>DataBinding学习</item>
     </string-array>
     <string-array name="rx_java">
         <item>调用RxJava</item>
