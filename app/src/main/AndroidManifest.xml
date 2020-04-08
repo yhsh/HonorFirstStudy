@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
         <activity
+            android:name=".jetpack.navigation.NavigationActivityArgs"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".jetpack.navigation.NavigationActivity"
             android:theme="@style/AppTheme" />
         <activity

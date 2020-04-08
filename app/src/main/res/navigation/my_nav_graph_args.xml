@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_graph_args"
+    app:startDestination="@id/jetPackHomeArgsFragment">
+
+    <fragment
+        android:id="@+id/jetPackHomeArgsFragment"
+        android:name="com.xiayiye.honorfirst.jetpack.navigation.JetPackHomeArgsFragment"
+        android:label="首页"
+        tools:layout="@layout/fragment_jet_pack_home_args">
+        <action
+            android:id="@+id/action_jetPackHomeArgsFragment_to_jetPackDetailArgsFragment"
+            app:destination="@id/jetPackDetailArgsFragment"
+            app:enterAnim="@anim/scale_rotate"
+            app:exitAnim="@anim/slide_to_right">
+            <argument
+                android:name="name"
+                android:defaultValue="这里可以覆盖详情页面添加的默认值" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/jetPackDetailArgsFragment"
+        android:name="com.xiayiye.honorfirst.jetpack.navigation.JetPackDetailArgsFragment"
+        android:label="详情"
+        tools:layout="@layout/fragment_jet_pack_detail_args">
+        <action
+            android:id="@+id/action_jetPackDetailArgsFragment_to_jetPackHomdeArgsFragment"
+            app:destination="@id/jetPackHomeArgsFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+        <!--详情页面接收参数的默认值-->
+        <argument
+            android:name="name"
+            android:defaultValue="下一页5"
+            app:argType="string" />
+    </fragment>
+</navigation>

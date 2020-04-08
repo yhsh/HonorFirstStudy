@@ -9,6 +9,7 @@ import com.xiayiye.honorfirst.R;
 import com.xiayiye.honorfirst.jetpack.databinding.DataBindingActivity;
 import com.xiayiye.honorfirst.jetpack.livedata.LiveDataActivity;
 import com.xiayiye.honorfirst.jetpack.navigation.NavigationActivity;
+import com.xiayiye.honorfirst.jetpack.navigation.NavigationActivityArgs;
 import com.xiayiye.honorfirst.jetpack.viewmodel.ViewModelActivity;
 
 /**
@@ -37,6 +38,9 @@ public class JetPackActivity extends Activity {
                 break;
             case 3:
                 jumpPage(NavigationActivity.class);
+                break;
+            case 4:
+                jumpPage(NavigationActivityArgs.class);
                 break;
             default:
                 break;
