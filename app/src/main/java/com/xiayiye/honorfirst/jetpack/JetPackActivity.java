@@ -8,6 +8,7 @@ import android.widget.ListView;
 import com.xiayiye.honorfirst.R;
 import com.xiayiye.honorfirst.jetpack.databinding.DataBindingActivity;
 import com.xiayiye.honorfirst.jetpack.livedata.LiveDataActivity;
+import com.xiayiye.honorfirst.jetpack.navigation.NavigationActivity;
 import com.xiayiye.honorfirst.jetpack.viewmodel.ViewModelActivity;
 
 /**
@@ -33,6 +34,9 @@ public class JetPackActivity extends Activity {
                 break;
             case 2:
                 jumpPage(DataBindingActivity.class);
+                break;
+            case 3:
+                jumpPage(NavigationActivity.class);
                 break;
             default:
                 break;

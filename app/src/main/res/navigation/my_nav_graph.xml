@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_graph"
+    app:startDestination="@id/jetPackHomeFragment">
+
+    <fragment
+        android:id="@+id/jetPackHomeFragment"
+        android:name="com.xiayiye.honorfirst.jetpack.navigation.JetPackHomeFragment"
+        android:label="首页"
+        tools:layout="@layout/fragment_jet_pack_home">
+        <action
+            android:id="@+id/action_jetPackHomeFragment_to_jetPackDetailFragment"
+            app:destination="@id/jetPackDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/jetPackDetailFragment"
+        android:name="com.xiayiye.honorfirst.jetpack.navigation.JetPackDetailFragment"
+        android:label="详情页"
+        tools:layout="@layout/fragment_jet_pack_detail">
+        <action
+            android:id="@+id/action_jetPackDetailFragment_to_jetPackHomeFragment"
+            app:destination="@id/jetPackHomeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+</navigation>
