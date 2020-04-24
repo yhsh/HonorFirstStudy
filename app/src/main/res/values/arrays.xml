@@ -23,6 +23,8 @@
         <item>RxJava学习</item>
         <item>购物车抛物线动画</item>
         <item>JetPack学习</item>
+        <item>Http相关学习</item>
+        <item>自定义倒影图片</item>
     </string-array>
     <string-array name="jetPack">
         <item>ViewModel学习</item>
@@ -36,5 +38,8 @@
         <item>RxJava操作符之登录获取数据</item>
         <item>RxJava操作符之EditText搜索案例</item>
         <item>RxJava操作符之按钮防重复点击</item>
+    </string-array>
+    <string-array name="http">
+        <item>Get Json</item>
     </string-array>
 </resources>

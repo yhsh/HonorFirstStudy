@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import com.xiayiye.honorfirst.R;
 import com.xiayiye.honorfirst.ActivityManageAll;
+import com.xiayiye.honorfirst.httpstudy.HttpStudyActivity;
 import com.xiayiye.honorfirst.jetpack.JetPackActivity;
 
 /**
@@ -41,8 +42,26 @@ public class AppActivity extends Activity implements AdapterView.OnItemClickList
             case 3:
                 goJetPack();
                 break;
+            case 4:
+                httpStudy();
+                break;
+            case 5:
+                //跳转倒影图片页面
+                invertedImage();
+                break;
             default:
         }
+    }
+
+    /**
+     * 自定义倒影图片
+     */
+    private void invertedImage() {
+        ActivityManageAll.getInstance2().goActivity(InvertedImageActivity.class);
+    }
+
+    private void httpStudy() {
+        ActivityManageAll.getInstance2().goActivity(HttpStudyActivity.class);
     }
 
     private void goJetPack() {

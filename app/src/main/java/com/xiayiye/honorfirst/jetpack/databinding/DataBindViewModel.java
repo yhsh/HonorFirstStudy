@@ -50,4 +50,10 @@ public class DataBindViewModel extends ViewModel {
         }
         return score;
     }
+
+    public void add(int addScore) {
+        Integer value = score.getValue();
+        value += addScore;
+        score.setValue(value);
+    }
 }
