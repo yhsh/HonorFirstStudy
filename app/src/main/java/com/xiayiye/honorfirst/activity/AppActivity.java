@@ -49,6 +49,9 @@ public class AppActivity extends Activity implements AdapterView.OnItemClickList
                 //跳转倒影图片页面
                 invertedImage();
                 break;
+            case 6:
+                ActivityManageAll.getInstance2().goActivity(BallActivity.class);
+                break;
             default:
         }
     }

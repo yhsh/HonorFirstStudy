@@ -62,6 +62,7 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".httpstudy.HttpStudyActivity" />
         <activity android:name=".activity.InvertedImageActivity"/>
+        <activity android:name=".activity.BallActivity" />
 
         <meta-data
             android:name="XiaYiYe"
