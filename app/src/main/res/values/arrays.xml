@@ -26,6 +26,7 @@
         <item>Http相关学习</item>
         <item>自定义倒影图片</item>
         <item>自定义小球</item>
+        <item>自定义ViewPager</item>
     </string-array>
     <string-array name="jetPack">
         <item>ViewModel学习</item>

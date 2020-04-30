@@ -86,6 +86,8 @@ public class AppActivity extends Activity implements AdapterView.OnItemClickList
                 break;
             case 6:
                 ActivityManageAll.getInstance2().goActivity(BallActivity.class);
+                break;case 7:
+                ActivityManageAll.getInstance2().goActivity(ImageSwitchActivity.class);
                 break;
             default:
         }

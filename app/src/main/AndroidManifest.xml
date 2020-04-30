@@ -63,6 +63,7 @@
         <activity android:name=".httpstudy.HttpStudyActivity" />
         <activity android:name=".activity.InvertedImageActivity"/>
         <activity android:name=".activity.BallActivity" />
+        <activity android:name=".activity.ImageSwitchActivity" />
 
         <meta-data
             android:name="XiaYiYe"
