@@ -9,6 +9,10 @@ import android.widget.ListView;
 import com.xiayiye.honorfirst.R;
 import com.xiayiye.honorfirst.ActivityManageAll;
 import com.xiayiye.honorfirst.httpstudy.HttpStudyActivity;
+import com.xiayiye.honorfirst.inter.BasketballCoach;
+import com.xiayiye.honorfirst.inter.BasketballPlayer;
+import com.xiayiye.honorfirst.inter.PingBangCoach;
+import com.xiayiye.honorfirst.inter.PingBingPlayer;
 import com.xiayiye.honorfirst.jetpack.JetPackActivity;
 
 /**
@@ -22,6 +26,37 @@ public class AppActivity extends Activity implements AdapterView.OnItemClickList
         setContentView(R.layout.activity_app);
         ListView lvApp = findViewById(R.id.lv_app);
         lvApp.setOnItemClickListener(this);
+//        分别实现乒乓球运动员和乒乓球教练的方法
+        PingBingPlayer pingBingPlayer = new PingBingPlayer();
+        pingBingPlayer.setAge(63);
+        pingBingPlayer.setName("邓亚萍");
+        pingBingPlayer.haveEat();
+        pingBingPlayer.speak();
+        pingBingPlayer.study();
+        pingBingPlayer.sleep();
+
+        PingBangCoach pingBangCoach = new PingBangCoach();
+        pingBangCoach.setAge(67);
+        pingBangCoach.setName("王国光");
+        pingBangCoach.haveEat();
+        pingBangCoach.speak();
+        pingBangCoach.teach();
+        pingBangCoach.sleep();
+
+//        分别实现篮球运动员和篮球教练的方法
+        BasketballPlayer basketballPlayer = new BasketballPlayer();
+        basketballPlayer.setAge(33);
+        basketballPlayer.setName("刘光");
+        basketballPlayer.haveEat();
+        basketballPlayer.study();
+        basketballPlayer.sleep();
+
+        BasketballCoach basketballCoach = new BasketballCoach();
+        basketballCoach.setAge(45);
+        basketballCoach.setName("张小华");
+        basketballCoach.haveEat();
+        basketballCoach.teach();
+        basketballCoach.sleep();
     }
 
     @Override
