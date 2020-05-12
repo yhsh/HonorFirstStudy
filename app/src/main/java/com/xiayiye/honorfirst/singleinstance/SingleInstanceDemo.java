@@ -3,7 +3,11 @@ package com.xiayiye.honorfirst.singleinstance;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -19,7 +23,7 @@ public class SingleInstanceDemo {
         try {
             Method add = aClass.getMethod("add", Object.class);
             try {
-                add.invoke(list,"测试数据");
+                add.invoke(list, "测试数据");
                 System.out.println(list);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
@@ -31,19 +35,22 @@ public class SingleInstanceDemo {
         }
         final int corePoolSize = Runtime.getRuntime().availableProcessors();
         int maxiNumPoolSize = corePoolSize * 2 + 1;
-        for (int i = 0; i < 10; i++) {
-            final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
-                    corePoolSize,
-                    maxiNumPoolSize,
-                    1,
-                    TimeUnit.HOURS,
-                    new LinkedBlockingQueue<Runnable>(),
-                    Executors.defaultThreadFactory(),
-                    new ThreadPoolExecutor.AbortPolicy());
+        final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
+                corePoolSize,
+                maxiNumPoolSize,
+                1,
+                TimeUnit.HOURS,
+                new LinkedBlockingQueue<Runnable>(),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.AbortPolicy());
+        for (int i = 0; i < 100; i++) {
             threadPoolExecutor.execute(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("打印hash值:" + SingleInstanceObject.getInstance().hashCode() + " 核心数：" + corePoolSize + "对象：" + threadPoolExecutor.hashCode());
+                    System.out.println("打印hash值:" + SingleInstanceObject.getInstance().hashCode()
+                            + " 核心数：" + corePoolSize
+                            + "--当前线程池个数：" + threadPoolExecutor.getPoolSize()
+                            + "--主动执行任务的近似线程数：" + threadPoolExecutor.getActiveCount());
                 }
             });
         }
@@ -54,6 +61,7 @@ public class SingleInstanceDemo {
             }
         });
         System.out.println("打印结果：" + getResult(3, 5));
+        getMap();
     }
 
     /**
@@ -68,5 +76,30 @@ public class SingleInstanceDemo {
             return number * getResult(number, count - 1);
         }
         return 1;
+    }
+
+    /**
+     * 遍历 Map 集合
+     */
+    private static void getMap() {
+        Map<String, String> data = new HashMap<>();
+        data.put("1", "葫芦娃");
+        data.put("2", "葫芦爷爷");
+        data.put("3", "蛇精");
+        Set<String> keys = data.keySet();
+        for (String key : keys) {
+            System.out.println("打印Map的建：" + key);
+            System.out.println("打印Map的值1：" + data.get(key));
+        }
+        Collection<String> values = data.values();
+        for (String value : values) {
+            System.out.println("打印Map的值2：" + value);
+        }
+
+        //遍历方式二
+        Set<Map.Entry<String, String>> entries = data.entrySet();
+        for (Map.Entry<String, String> entry : entries) {
+            System.out.println("打印Map的entrySet键：" + entry.getKey() + "--值：" + entry.getValue());
+        }
     }
 }

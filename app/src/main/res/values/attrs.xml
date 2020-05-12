@@ -33,4 +33,11 @@
         <!--圆弧的大小-->
         <attr name="edgeDistance" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="LoadCircleView">
+        <!--圆的半径-->
+        <attr name="circle_radius" format="float" />
+        <!--持续时间-->
+        <attr name="duration" format="integer" />
+    </declare-styleable>
 </resources>

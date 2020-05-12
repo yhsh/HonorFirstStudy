@@ -23,6 +23,7 @@
         app:num_text_size="20sp" />
 
     <com.xiayiye.honorfirst.custom.CustomProgressView
+        android:id="@+id/pb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -33,4 +34,12 @@
         app:progress_unit="99"
         app:titleTextSize="24sp"
         app:unitTextSize="16sp" />
+
+    <com.xiayiye.honorfirst.custom.LoadCircleView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pb"
+        android:layout_centerInParent="true"
+        app:circle_radius="15"
+        app:duration="700" />
 </RelativeLayout>

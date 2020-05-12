@@ -29,6 +29,9 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * @author xiayiye
+ */
 public class MainActivity extends Activity {
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     // We want at least 2 threads and at most 4 threads in the core pool,
