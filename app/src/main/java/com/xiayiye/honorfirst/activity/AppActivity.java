@@ -13,6 +13,7 @@ import com.xiayiye.honorfirst.inter.BasketballCoach;
 import com.xiayiye.honorfirst.inter.BasketballPlayer;
 import com.xiayiye.honorfirst.inter.PingBangCoach;
 import com.xiayiye.honorfirst.inter.PingBingPlayer;
+import com.xiayiye.honorfirst.inter.randomlayout.TestAnimActivity;
 import com.xiayiye.honorfirst.jetpack.JetPackActivity;
 
 /**
@@ -86,8 +87,12 @@ public class AppActivity extends Activity implements AdapterView.OnItemClickList
                 break;
             case 6:
                 ActivityManageAll.getInstance2().goActivity(BallActivity.class);
-                break;case 7:
+                break;
+            case 7:
                 ActivityManageAll.getInstance2().goActivity(ImageSwitchActivity.class);
+                break;
+            case 8:
+                ActivityManageAll.getInstance2().goActivity(TestAnimActivity.class);
                 break;
             default:
         }
