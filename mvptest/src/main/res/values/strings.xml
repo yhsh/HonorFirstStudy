@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MvpTest</string>
+    <string name="retrofit_study">进入Retrofit练习</string>
 </resources>

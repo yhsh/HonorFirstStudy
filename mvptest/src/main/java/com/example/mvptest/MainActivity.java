@@ -1,6 +1,7 @@
 package com.example.mvptest;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.mvptest.bean.HomeBean;
 import com.example.mvptest.contract.HomeContract;
 import com.example.mvptest.presenter.HomePresenter;
+import com.example.mvptest.ui.activity.RetrofitStudyActivity;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -130,5 +132,9 @@ public class MainActivity extends Activity implements HomeContract.Views {
     @Override
     public void showFailData(String data) {
         tvShoeResult.setText(data);
+    }
+
+    public void goRetrofit(View view) {
+        startActivity(new Intent(this, RetrofitStudyActivity.class));
     }
 }

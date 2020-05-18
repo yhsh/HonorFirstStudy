@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="data">
+        <item>注册接口</item>
+        <item>登录接口</item>
+    </string-array>
+</resources>
