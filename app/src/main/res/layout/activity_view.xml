@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yhsh="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.xiayiye.honorfirst.custom.TestView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:background="@color/colorAccent"
+        yhsh:test_boolean="true"
+        yhsh:test_color="#CC5638"
+        yhsh:test_dimension="33dp"
+        yhsh:test_enum="right"
+        yhsh:test_float="32.0"
+        yhsh:test_fraction="30%"
+        yhsh:test_integer="100"
+        yhsh:test_reference="@drawable/girl"
+        yhsh:test_string="测试数据" />
+</RelativeLayout>

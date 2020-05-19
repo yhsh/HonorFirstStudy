@@ -65,6 +65,7 @@
         <activity android:name=".activity.BallActivity" />
         <activity android:name=".activity.ImageSwitchActivity" />
         <activity android:name=".inter.randomlayout.TestAnimActivity" />
+        <activity android:name=".activity.ViewActivity" />
 
         <meta-data
             android:name="XiaYiYe"

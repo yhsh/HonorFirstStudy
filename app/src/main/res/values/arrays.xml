@@ -28,6 +28,7 @@
         <item>自定义小球</item>
         <item>自定义ViewPager</item>
         <item>飞入飞出效果</item>
+        <item>自定义View学习</item>
     </string-array>
     <string-array name="jetPack">
         <item>ViewModel学习</item>

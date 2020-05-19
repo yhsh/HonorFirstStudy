@@ -40,4 +40,21 @@
         <!--持续时间-->
         <attr name="duration" format="integer" />
     </declare-styleable>
+
+    <!--自定义View的学习-->
+    <declare-styleable name="TestView">
+        <attr name="test_string" format="string" />
+        <attr name="test_fraction" format="fraction" />
+        <attr name="test_enum" format="enum">
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="test_float" format="float" />
+        <attr name="test_boolean" format="boolean" />
+        <attr name="test_dimension" format="dimension" />
+        <attr name="test_color" format="color" />
+        <attr name="test_flags" format="flags" />
+        <attr name="test_integer" format="integer" />
+        <attr name="test_reference" format="reference" />
+    </declare-styleable>
 </resources>

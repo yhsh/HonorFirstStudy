@@ -1,4 +1,12 @@
-package com.example.mvptest.utils;
+package com.xiayiye.honorfirst.activity;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+import com.xiayiye.honorfirst.R;
+
+import androidx.annotation.Nullable;
+
 /*
  * Copyright (c) 2020, smuyyh@gmail.com All Rights Reserved.
  * #                                                   #
@@ -26,37 +34,21 @@ package com.example.mvptest.utils;
  * #                                                   #
  */
 
-import com.example.mvptest.api.RequestApi;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 /**
  * @author 下一页5（轻飞扬）
- * 创建时间：2020/5/18 21:47
+ * 创建时间：2020/5/19 18:50
  * 个人小站：http://yhsh.wap.ai(已挂)
  * 最新小站：http://www.iyhsh.icoc.in
  * 联系作者：企鹅 13343401268
  * 博客地址：http://blog.csdn.net/xiayiye5
  * 项目名称：HonorFirst
- * 文件包名：com.example.mvptest.utils
+ * 文件包名：com.xiayiye.honorfirst.activity
  * 文件说明：
  */
-public class RetrofitSingle {
-    private RetrofitSingle() {
-    }
-
-    public static RetrofitSingle getInstance() {
-        return NewInstance.RETROFIT_SINGLE;
-    }
-
-    private static class NewInstance {
-        private static final RetrofitSingle RETROFIT_SINGLE = new RetrofitSingle();
-    }
-
-    public RequestApi getRetrofit() {
-        return new Retrofit.Builder().baseUrl("https://wanandroid.com/")
-                .addConverterFactory(GsonConverterFactory.create()).build()
-                .create(RequestApi.class);
+public class ViewActivity extends Activity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view);
     }
 }

@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.xiayiye.honorfirst.R;
 import com.xiayiye.honorfirst.ActivityManageAll;
+import com.xiayiye.honorfirst.R;
 import com.xiayiye.honorfirst.httpstudy.HttpStudyActivity;
 import com.xiayiye.honorfirst.inter.BasketballCoach;
 import com.xiayiye.honorfirst.inter.BasketballPlayer;
@@ -93,6 +93,9 @@ public class AppActivity extends Activity implements AdapterView.OnItemClickList
                 break;
             case 8:
                 ActivityManageAll.getInstance2().goActivity(TestAnimActivity.class);
+                break;
+            case 9:
+                ActivityManageAll.getInstance2().goActivity(ViewActivity.class);
                 break;
             default:
         }
