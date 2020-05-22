@@ -27,6 +27,7 @@ package com.xiayiye.honorfirst;
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -47,15 +48,48 @@ public class MianShi {
 //        System.out.println(s);
 
 
-        A a = new A();
-        a.addB(1);
-        List<A> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            a.addC(i);
-            list.add(a);
+//        A a = new A();
+//        a.addB(1);
+//        List<A> list = new ArrayList<>();
+//        for (int i = 0; i < 10; i++) {
+//            a.addC(i);
+//            list.add(a);
+//        }
+//        for (A a1 : list) {
+//            System.out.println(a1.getB() + "==" + a1.getC());
+//        }
+
+        //面试二
+//        Integer a = new Integer(1);
+//        Integer b = Integer.valueOf(1);
+//        Integer c = Integer.valueOf("1");
+//        Integer d = new Integer(1);
+//        System.out.println("打印" + a + "=" + b + "=" + c);
+//        System.out.println(a == b);
+//        System.out.println(a == c);
+//        System.out.println(b == c);
+//        System.out.println(a == d);
+        int[] arr = {1, 2, 9, 23, 45, 63, 10, 17};
+        for (int i : arr) {
+            System.out.println(i);
         }
-        for (A a1 : list) {
-            System.out.println(a1.getB() + "==" + a1.getC());
+        sortArray(arr);
+        System.out.println("--------------------------------");
+        for (int i : arr) {
+            System.out.println(i);
+        }
+    }
+
+    private static void sortArray(int[] arr) {
+        int temp = 0;
+        for (int x = 0; x < arr.length - 1; x++) {
+            for (int y = 0; y < arr.length - 1 - x; y++) {
+                if (arr[y] > arr[y + 1]) {
+                    temp = arr[y];
+                    arr[y] = arr[y + 1];
+                    arr[y + 1] = temp;
+                }
+            }
         }
     }
 

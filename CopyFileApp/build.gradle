@@ -1,12 +1,18 @@
-apply plugin: 'com.android.application'
+//判断是否可独立运行，是的话就是一个Application,否则就是个Library
+if (isRunningApp.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 
 android {
     compileSdkVersion 28
 
 
-
     defaultConfig {
-        applicationId "com.example.copyfileapp"
+        if (isRunningApp.toBoolean()) {
+            applicationId "com.example.copyfileapp"
+        }
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
@@ -19,7 +25,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    sourceSets {
+        main {
+            if (isRunningApp.toBoolean()) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {

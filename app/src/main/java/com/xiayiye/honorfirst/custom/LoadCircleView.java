@@ -7,6 +7,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
@@ -154,5 +155,22 @@ public class LoadCircleView extends View {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         valueAnimator.cancel();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int mode = MeasureSpec.getMode(widthMeasureSpec);
+        int size = MeasureSpec.getSize(widthMeasureSpec);
+        if (mode == MeasureSpec.EXACTLY) {
+            Log.e("打印模式：", "EXACTLY");
+        } else {
+            if (mode == MeasureSpec.AT_MOST) {
+                Log.e("打印模式：", "AT_MOST");
+            } else if (mode == MeasureSpec.UNSPECIFIED) {
+                Log.e("打印模式：", "UNSPECIFIED");
+            }
+        }
+        Log.e("打印宽高：", size + "");
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 }
