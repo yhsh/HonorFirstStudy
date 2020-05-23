@@ -69,15 +69,17 @@ public class MianShi {
 //        System.out.println(a == c);
 //        System.out.println(b == c);
 //        System.out.println(a == d);
-        int[] arr = {1, 2, 9, 23, 45, 63, 10, 17};
-        for (int i : arr) {
-            System.out.println(i);
-        }
-        sortArray(arr);
-        System.out.println("--------------------------------");
-        for (int i : arr) {
-            System.out.println(i);
-        }
+//        int[] arr = {1, 2, 9, 23, 45, 63, 10, 17};
+//        for (int i : arr) {
+//            System.out.println(i);
+//        }
+//        sortArray(arr);
+//        System.out.println("--------------------------------");
+//        for (int i : arr) {
+//            System.out.println(i);
+//        }
+        int[] data = {1, 4, 6, 12, 13, 19, 32, 43, 45};
+        System.out.println(midQuery(data, 44));
     }
 
     private static void sortArray(int[] arr) {
@@ -91,6 +93,32 @@ public class MianShi {
                 }
             }
         }
+    }
+
+    public static int midQuery(int[] arr, int num) {
+        int start = 0;
+        int end = arr.length;
+        while (true) {
+            int mid = (start + end) / 2;
+            if (num > arr[mid]) {
+                start = mid + 1;
+            } else if (num < arr[mid]) {
+                end = mid - 1;
+            } else {
+                return mid;
+            }
+            if (start > end) {
+                return -1;
+            } else if (start + 1 == end) {
+                return end;
+            }
+        }
+        /*for (int j = 0; j < arr.length; j++) {
+            if (num < arr[j]) {
+                return j;
+            }
+        }
+        return -1;*/
     }
 
     private static void add(String s) {
