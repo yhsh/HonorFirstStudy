@@ -33,27 +33,32 @@ public class SingleInstanceDemo {
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
-        final int corePoolSize = Runtime.getRuntime().availableProcessors();
+        int corePoolSize = Runtime.getRuntime().availableProcessors();
         int maxiNumPoolSize = corePoolSize * 2 + 1;
         final ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
                 corePoolSize,
                 maxiNumPoolSize,
                 1,
                 TimeUnit.HOURS,
-                new LinkedBlockingQueue<Runnable>(),
+                new LinkedBlockingQueue<Runnable>(5),
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.AbortPolicy());
         for (int i = 0; i < 100; i++) {
+            int taskId = i;
             threadPoolExecutor.execute(new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("打印hash值:" + SingleInstanceObject.getInstance().hashCode()
+                    System.out.println("当前线程的名称:" + Thread.currentThread().getName() + "---正在执行的task：" + taskId);
+                    System.out.println("缓冲队列中等待的任务数量：" + threadPoolExecutor.getQueue().size()
+                            + "-----------打印hash值:" + SingleInstanceObject.getInstance().hashCode()
                             + " 核心数：" + corePoolSize
                             + "--当前线程池个数：" + threadPoolExecutor.getPoolSize()
                             + "--主动执行任务的近似线程数：" + threadPoolExecutor.getActiveCount());
                 }
             });
         }
+        // 按过去执行已提交任务的顺序发起一个有序的关闭，但是不接受新任务。
+        threadPoolExecutor.shutdown();
         YhshThreadPoolFactory.getInstance().executeRequest(new Runnable() {
             @Override
             public void run() {

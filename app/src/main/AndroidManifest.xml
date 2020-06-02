@@ -66,6 +66,7 @@
         <activity android:name=".activity.ImageSwitchActivity" />
         <activity android:name=".inter.randomlayout.TestAnimActivity" />
         <activity android:name=".activity.ViewActivity" />
+        <activity android:name=".activity.ScaleViewActivity" />
 
         <meta-data
             android:name="XiaYiYe"

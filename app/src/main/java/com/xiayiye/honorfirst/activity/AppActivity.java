@@ -97,6 +97,9 @@ public class AppActivity extends Activity implements AdapterView.OnItemClickList
             case 9:
                 ActivityManageAll.getInstance2().goActivity(ViewActivity.class);
                 break;
+            case 10:
+                ActivityManageAll.getInstance2().goActivity(ScaleViewActivity.class);
+                break;
             default:
         }
     }
