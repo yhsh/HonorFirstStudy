@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".XiaYiYeApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -61,7 +62,7 @@
             android:name=".jetpack.livedata.LiveDataActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".httpstudy.HttpStudyActivity" />
-        <activity android:name=".activity.InvertedImageActivity"/>
+        <activity android:name=".activity.InvertedImageActivity" />
         <activity android:name=".activity.BallActivity" />
         <activity android:name=".activity.ImageSwitchActivity" />
         <activity android:name=".inter.randomlayout.TestAnimActivity" />
