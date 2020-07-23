@@ -31,6 +31,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author xiayiye
+ * 分支命名得合理
  */
 public class MainActivity extends Activity {
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
